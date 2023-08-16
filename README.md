@@ -5,4 +5,4 @@ The repo hosts my Neovim config for Linux (maybe in the future for Windows).
 
 That my first version of configuration.
 
-# To be continued
+# To be continued...

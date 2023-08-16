@@ -13,10 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 require("itas.core.options")
 require("itas.core.keymaps")
 
-local status, lazyPlug = pcall(require, "lazy")
+local status, configLazy = pcall(require, "lazy")
 if not status then return end
 
-lazyPlug.setup({
+configLazy.setup({
 
     -- Colorscheme https://github.com/folke/tokyonight.nvim
     {"folke/tokyonight.nvim", lazy = false, priority = 1000},

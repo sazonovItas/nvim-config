@@ -8,7 +8,8 @@ require("transparent").setup({
     extra_groups = {
         "NormalFloat", -- pluginss which have float panel such as Lazy, Mason, LSPInfo
         "NeoTreeNormal", "NeoTreeBorder", "NeoTreeNormalNC", -- NeotTree windows
-        "NeoTreeFloatBorder", "NeoTreeFloatTitle", -- NeoTree borders
+        "NeoTreeFloatBorder", "NeoTreeFloatTitle", "NeoTreeFloatBorder",
+        "NeoTreeTitleBar", "NeoTreeStatusLine", -- NeoTree borders
         "TelescopeNormal", "TelescopeBorder" -- Telescope
     }, -- table: additional groups that should be cleared
     exclude_groups = {} -- table: groups you don't want to clear

@@ -122,5 +122,16 @@ configLazy.setup({
         ft = "markdown",
         -- build = "cd app && yarn install",
         build = ":call mkdp#util#install()"
+    }, {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        dependencies = 'nvim-tree/nvim-web-devicons'
+    }, {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" -- optional dependency
+        }
     }
 })

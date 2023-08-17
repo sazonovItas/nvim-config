@@ -18,8 +18,9 @@ if not status then return end
 
 configLazy.setup({
 
-    -- Colorscheme https://github.com/folke/tokyonight.nvim
-    {"folke/tokyonight.nvim", lazy = false, priority = 1000},
+    -- Colorschemes
+    {"folke/tokyonight.nvim", lazy = false, priority = 2000},
+    {"catppuccin/nvim", name = "catppuccin", lazy = false, priority = 2000},
 
     -- Transparent https://github.com/xiyaowong/transparent.nvim
     {"xiyaowong/transparent.nvim", name = "transparent"},
@@ -133,5 +134,5 @@ configLazy.setup({
         dependencies = {
             "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" -- optional dependency
         }
-    }
+    }, {"christoomey/vim-tmux-navigator", "szw/vim-maximizer"} -- tmux win navigator and vim maximazer
 })

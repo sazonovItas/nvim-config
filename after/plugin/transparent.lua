@@ -10,7 +10,8 @@ require("transparent").setup({
         "NeoTreeNormal", "NeoTreeBorder", "NeoTreeNormalNC", -- NeotTree windows
         "NeoTreeFloatBorder", "NeoTreeFloatTitle", "NeoTreeFloatBorder",
         "NeoTreeTitleBar", "NeoTreeStatusLine", -- NeoTree borders
-        "TelescopeNormal", "TelescopeBorder" -- Telescope
+        "TelescopeNormal", "TelescopeBorder", -- Telescope
+        "CursorLine" -- Cursor line
     }, -- table: additional groups that should be cleared
     exclude_groups = {} -- table: groups you don't want to clear
 })

@@ -1,33 +1,27 @@
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight]]
 
-require("tokyonight").setup({
-  style = "storm",
-  transparent = true,
-})
+require("tokyonight").setup({style = "storm", transparent = true})
 
 vim.fn.sign_define({
-  {
-    name = 'DiagnosticSignError',
-    text = '',
-    texthl = 'DiagnosticSignError',
-    linehl = 'ErrorLine',
-  },
-  {
-    name = 'DiagnosticSignWarn',
-    text = '',
-    texthl = 'DiagnosticSignWarn',
-    linehl = 'WarningLine',
-  },
-  {
-    name = 'DiagnosticSignInfo',
-    text = '',
-    texthl = 'DiagnosticSignInfo',
-    linehl = 'InfoLine',
-  },
-  {
-    name = 'DiagnosticSignHint',
-    text = '',
-    texthl = 'DiagnosticSignHint',
-    linehl = 'HintLine',
-  },
+    {
+        name = 'DiagnosticSignError',
+        text = '',
+        texthl = 'DiagnosticSignError',
+        linehl = 'ErrorLine'
+    }, {
+        name = 'DiagnosticSignWarn',
+        text = '',
+        texthl = 'DiagnosticSignWarn',
+        linehl = 'WarningLine'
+    }, {
+        name = 'DiagnosticSignInfo',
+        text = '',
+        texthl = 'DiagnosticSignInfo',
+        linehl = 'InfoLine'
+    }, {
+        name = 'DiagnosticSignHint',
+        text = '',
+        texthl = 'DiagnosticSignHint',
+        linehl = 'HintLine'
+    }
 })

@@ -134,5 +134,18 @@ configLazy.setup({
         dependencies = {
             "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" -- optional dependency
         }
-    }, {"christoomey/vim-tmux-navigator", "szw/vim-maximizer"} -- tmux win navigator and vim maximazer
+    }, {"christoomey/vim-tmux-navigator", "szw/vim-maximizer"}, -- tmux win navigator and vim maximazer
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false
+    }, {
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        dependencies = {"mfussenegger/nvim-dap"},
+        config = function(_, opts) require("dap-go").setup(opts) end
+    } -- debbuger golang
+
 })

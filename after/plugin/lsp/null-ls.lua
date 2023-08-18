@@ -4,8 +4,9 @@ local formatting = null_ls.builtins.formatting
 
 local opts = {
     sources = {
+        formatting.goimports_reviser, formatting.gofumpt, formatting.golines,
         formatting.clang_format, formatting.cmake_format, formatting.asmfmt,
-        formatting.lua_format, formatting.prettier, formatting.goimports
+        formatting.lua_format, formatting.prettier
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

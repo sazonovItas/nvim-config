@@ -46,6 +46,22 @@ lsp_zero.on_attach(function(client, bufnr)
     end
 end)
 
+local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
+
+lspconfig.gopls.setup({
+    -- on_attach = on_attach,
+    -- capabilities = capabilities,
+    cmd = {"gopls"},
+    filetypes = {"go", "gomod", "gowork", "gotmpl"},
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {unusedparams = true}
+        }
+    }
+})
 lsp_zero.setup()
 
 vim.diagnostic.config({virtual_text = true})

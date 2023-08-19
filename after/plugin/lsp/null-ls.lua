@@ -1,7 +1,8 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require("null-ls")
-local formatting = null_ls.builtins.formatting
+local status, null_ls = pcall(require, "null-ls")
+if not status then return end
 
+local formatting = null_ls.builtins.formatting
 local opts = {
     sources = {
         formatting.goimports_reviser, formatting.gofumpt, formatting.golines,

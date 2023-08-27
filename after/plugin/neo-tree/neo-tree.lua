@@ -10,10 +10,11 @@ configNeoTree.setup({
         winbar = true,
         sources = {
             {source = "filesystem"}, {source = "buffers"},
-            {source = "document_symbols"}, {source = "remote"},
-            {source = "git_status"}
+            {source = "document_symbols", position = "right"},
+            {source = "remote"}, {source = "git_status"}
         }
     },
+    position = "right",
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,

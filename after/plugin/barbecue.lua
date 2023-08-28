@@ -1,22 +1,7 @@
-require("barbecue").setup({
-    attach_navic = false, -- prevent barbecue from automatically attaching nvim-navij
-    symbols = {
-        ---Modification indicator.
-        ---
-        ---@type string
-        modified = "●",
+local M = {}
 
-        ---Truncation indicator.
-        ---
-        ---@type string
-        ellipsis = "…",
-
-        ---Entry separator.
-        ---
-        ---@type string
-        separator = "󰁕"
-    },
-    kinds = {
+M.kinds = function()
+    local icons = {
         File = "󰈙 ",
         Module = " ",
         Namespace = "󰌗 ",
@@ -44,4 +29,38 @@ require("barbecue").setup({
         Operator = "󰆕 ",
         TypeParameter = "󰊄 "
     }
+    return icons
+end
+
+M.symbols = function()
+    local icons = {
+        ---Modification indicator.
+        ---
+        ---@type string
+        modified = "●",
+
+        ---Truncation indicator.
+        ---
+        ---@type string
+        ellipsis = "…",
+
+        ---Entry separator.
+        ---
+        ---@type string
+        separator = "󰁕"
+    }
+    return icons
+end
+
+M.settings = function()
+    local settings = {
+        attach_navic = false -- prevent barbecue from automatically attaching nvim-navij
+    }
+    return settings
+end
+
+require("barbecue").setup({
+    M.settings(),
+    symbols = M.symbols(),
+    kinds = M.kinds()
 })

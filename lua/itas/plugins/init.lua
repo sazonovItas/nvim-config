@@ -1,5 +1,5 @@
 require("itas.plugins.lsp.mason")
 require("itas.plugins.lsp.lsp")
 require("itas.plugins.lsp.null-ls")
-require("itas.plugins.lsp.luasnip")
+-- require("itas.plugins.lsp.luasnip")
 require("itas.plugins.cmp")

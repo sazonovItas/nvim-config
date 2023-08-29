@@ -1,29 +1,37 @@
-local M = {}
-
-M.highlights = function()
-    local theme = {
-        buffer_selected = {bold = true},
-        diagnostic_selected = {bold = true},
-        info_selected = {bold = true},
-        info_diagnostic_selected = {bold = true},
-        warning_selected = {bold = true},
-        warning_diagnostic_selected = {bold = true},
-        error_selected = {bold = true},
-        error_diagnostic_selected = {bold = true}
-    }
-    return theme
+local status, bufferline = pcall(require, "bufferline")
+if not status then
+    print("Bufferline plugin isn't available!")
+    return
 end
 
-local bufferline = require('bufferline')
 bufferline.setup({
+    highlights = {
+        buffer_selected = {italic = false},
+        diagnostic_selected = {italic = false},
+        hint_selected = {italic = false},
+        pick_selected = {italic = false},
+        pick_visible = {italic = false},
+        pick = {italic = false}
+    },
     options = {
-        highlights = M.highlights(),
-        show_close_icon = true,
+        indicator_icon = "▎",
+        modified_icon = "●",
+        buffer_close_icon = "",
+        close_icon = "",
+        left_trunc_marker = "",
+        right_trunc_marker = "",
+        numbers = "ordinal",
+        max_name_length = 15,
+        max_prefix_length = 6,
         diagnostics = "nvim_lsp",
-        max_prefix_length = 10,
-        diagnostics_indicator = function(count, level, _, _)
-            local icon = level:match("error") and " " or " "
-            return " " .. icon .. count
+        show_buffer_icons = true,
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+        persist_buffer_sort = true,
+        enforce_regular_tabs = true,
+        diagnostics_indicator = function(count, level)
+            local icon = level:match("error") and "" or ""
+            return icon .. count
         end
     }
 })

@@ -72,6 +72,7 @@ configLazy.setup({
             -- Autocompletion
             {'hrsh7th/nvim-cmp'}, {'hrsh7th/cmp-buffer'}, {'hrsh7th/cmp-path'},
             {'saadparwaiz1/cmp_luasnip'}, {'hrsh7th/cmp-nvim-lsp'},
+            {'onsails/lspkind.nvim'}, -- vscode like documentation
             {'hrsh7th/cmp-nvim-lua'}, -- Snippets
             {'L3MON4D3/LuaSnip'}, -- Required
             {'rafamadriz/friendly-snippets'}
@@ -98,7 +99,11 @@ configLazy.setup({
         }
     }, -- winbar that uses nvim-navic in order to get LSP context
     {"christoomey/vim-tmux-navigator", "szw/vim-maximizer"}, -- tmux win navigator and vim maximazer
-    {'numToStr/Comment.nvim', lazy = false}, -- Fast comments
+    {
+        'numToStr/Comment.nvim',
+        lazy = false,
+        config = function() require("Comment").setup() end
+    }, -- Fast comments
     {
         "leoluz/nvim-dap-go",
         ft = "go",
@@ -110,5 +115,6 @@ configLazy.setup({
         'akinsho/toggleterm.nvim',
         version = "*",
         opts = {auto_scroll = true, direction = "vertical"}
-    } -- Terminal
+    }, -- Terminal
+    {"folke/todo-comments.nvim", dependencies = {"nvim-lua/plenary.nvim"}} -- Todo
 })

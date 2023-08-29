@@ -51,7 +51,7 @@ keymap.set("n", "<leader>e", ":Neotree toggle<CR>") -- toggle file explorer
 keymap.set("n", "<leader>te", ":Neotree focus<CR>") -- toggle file explorer
 keymap.set("n", "<leader>tb", ":Neotree buffers focus<CR>") -- toggle buffers tree
 keymap.set("n", "<leader>tg", ":Neotree git_status focus<CR>") -- toggle git_status tree
-keymap.set("n", "<leader>td", ":Neotree document_symbols focus<CR>") -- togglt document_symbols tree
+keymap.set("n", "<leader>ts", ":Neotree document_symbols focus<CR>") -- togglt document_symbols tree
 
 -- telescope
 keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")

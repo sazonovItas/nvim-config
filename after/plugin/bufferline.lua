@@ -19,7 +19,6 @@ bufferline.setup({
     options = {
         highlights = M.highlights(),
         show_close_icon = true,
-        separator_style = "padded_slant",
         diagnostics = "nvim_lsp",
         max_prefix_length = 10,
         diagnostics_indicator = function(count, level, _, _)

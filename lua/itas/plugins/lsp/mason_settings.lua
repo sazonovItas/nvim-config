@@ -12,7 +12,7 @@ end
 M.ensure_installed_lsp = function()
     local lsp = {
         "clangd", "cmake", "jsonls", "lua_ls", "bashls", "cssls", "tsserver",
-        "html", "gopls"
+        "html", "gopls", "yamlls"
     }
     return lsp
 end

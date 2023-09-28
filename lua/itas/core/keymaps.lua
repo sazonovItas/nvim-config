@@ -39,6 +39,10 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- tmux win navigator and vim maximazer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+keymap.set("n", "<C-h>", ":TmuxNavigateRight<CR>")
+keymap.set("n", "<C-j>", ":TmuxNavigateUp<CR>")
+keymap.set("n", "<C-k>", ":TmuxNavigateDown<CR>")
+keymap.set("n", "<C-l>", ":TmuxNavigateLeft<CR>")
 
 -- bufferline
 keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>")

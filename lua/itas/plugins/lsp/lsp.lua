@@ -10,7 +10,7 @@ local on_attach = function(client, bufnr)
     keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
     keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-    keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    keymap("n", "<C-y>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
     keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -29,7 +29,7 @@ end
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- capabilities.offsetEncoding = {"utf-16"}
+capabilities.offsetEncoding = {"utf-16"}
 local flags = {allow_incremental_sync = true, debounce_text_changes = 200}
 
 local runtime_path = vim.split(package.path, ";", {})
@@ -105,18 +105,24 @@ lspconfig["tsserver"].setup({
         "typescriptreact", "typescript.tsx"
     },
     root_dir = util.root_pattern("package.json", "tsconfig.json",
-                                 "jsconfig.json", ".git")
+                                 "jsconfig.json", ".git"),
+    init_options = {preferences = {disableSuggestions = true}}
 })
 
-lspconfig["html"].setup({
-    on_attach = on_attach,
+lspconfig.emmet_ls.setup({
+    -- on_attach = on_attach,
     capabilities = capabilities,
-    flags = flags,
-    -- cmd = { "html-lsp", "--stdio" },
-    filetypes = {"html"},
+    filetypes = {
+        "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass",
+        "scss", "svelte", "pug", "typescriptreact", "vue"
+    },
     init_options = {
-        configurationSection = {"html", "css", "javascript"},
-        embeddedLanguages = {css = true, javascript = true}
+        html = {
+            options = {
+                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                ["bem.enabled"] = true
+            }
+        }
     }
 })
 

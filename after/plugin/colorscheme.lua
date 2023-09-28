@@ -1,6 +1,12 @@
 vim.cmd [[colorscheme tokyonight]]
 
-require("tokyonight").setup({style = "storm", transparent = true})
+local status, tokyonight = pcall(require, "tokyonight")
+if not status then
+    print("Tokyonight colorscheme isn't avaliable!")
+    return
+end
+
+tokyonight.setup({style = "storm", transparent = true})
 
 vim.fn.sign_define({
     {

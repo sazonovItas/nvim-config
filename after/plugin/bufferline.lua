@@ -30,7 +30,7 @@ bufferline.setup({
         persist_buffer_sort = true,
         enforce_regular_tabs = true,
         diagnostics_indicator = function(count, level)
-            local icon = level:match("error") and "" or ""
+            local icon = level:match("error") and " " or " "
             return icon .. count
         end
     }

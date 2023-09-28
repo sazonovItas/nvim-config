@@ -1,5 +1,14 @@
-local cmp = require('cmp')
-local lspkind = require('lspkind')
+local status_cmp, cmp = pcall(require, 'cmp')
+if not status_cmp then
+    print("Cmp plugin isn't available!")
+    return
+end
+
+local status_lspkind, lspkind = pcall(require, 'lspkind')
+if not status_lspkind then
+    print("lspkind plugin isn't available!")
+    return
+end
 
 cmp.setup({
     snippet = {
@@ -66,4 +75,4 @@ local opts = {
         return 0
     end
 }
--- require('lsp_signature').setup(opts)
+require('lsp_signature').setup(opts)

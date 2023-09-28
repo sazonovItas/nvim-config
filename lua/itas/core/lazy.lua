@@ -16,7 +16,6 @@ if not status then
 end
 
 configLazy.setup({
-
     {
         "folke/tokyonight.nvim",
         name = "tokyonight",
@@ -65,6 +64,7 @@ configLazy.setup({
         dependencies = {
             {
                 'williamboman/mason.nvim',
+                'jay-babu/mason-nvim-dap.nvim',
                 build = function()
                     pcall(vim.api.nvim_command, 'MasonUpdate')
                 end
@@ -104,17 +104,35 @@ configLazy.setup({
         lazy = false,
         config = function() require("Comment").setup() end
     }, -- Fast comments
-    {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        dependencies = {"mfussenegger/nvim-dap"},
-        config = function(_, opts) require("dap-go").setup(opts) end
-    }, -- debbuger golang
     {"ray-x/lsp_signature.nvim", event = "VeryLazy"}, -- Function's arguments hints
+    {"folke/todo-comments.nvim", dependencies = {"nvim-lua/plenary.nvim"}}, -- Todo
     {
         'akinsho/toggleterm.nvim',
         version = "*",
         opts = {auto_scroll = true, direction = "vertical"}
     }, -- Terminal
-    {"folke/todo-comments.nvim", dependencies = {"nvim-lua/plenary.nvim"}} -- Todo
+    {
+        "mfussenegger/nvim-dap",
+        name = "nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui", "theHamsta/nvim-dap-virtual-text",
+            "nvim-telescope/telescope-dap.nvim"
+        }
+    }, -- nvim debbugger
+    {"leoluz/nvim-dap-go", ft = "go"}, -- debbuger golang
+    {"mfussenegger/nvim-lint", event = "VeryLazy"}, -- linter
+    {
+        'barrett-ruth/live-server.nvim',
+        build = 'yarn global add live-server',
+        config = true
+    }, -- live server
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    }, -- autopairs (cmp of brackets and other pairs elements)
+    {
+        "norcalli/nvim-colorizer.lua",
+        config = function() require("colorizer").setup() end
+    }
 })
